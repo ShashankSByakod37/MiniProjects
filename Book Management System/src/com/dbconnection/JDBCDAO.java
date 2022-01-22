@@ -18,6 +18,8 @@ public class JDBCDAO {
 		}
 		
 		
+		System.out.println();
+		
 //		ps.setInt(1, 3);
 //		ps.setString(2, "Wings of Fire");
 //		ps.setString(3,"APJ Abdul Kalam");
