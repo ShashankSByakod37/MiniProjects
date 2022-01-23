@@ -25,21 +25,27 @@ public class Book implements Comparable<Book> {
 	public void setBookId(int bookId) {
 		this.bookId = bookId;
 	}
+	public void setBook(String book) {
+		this.book = book;
+	}
 	public String getBook() {
 		return book;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 	public String getAuthor() {
 		return author;
 	}
-	public Double getPrice() {
-		return price;
-	}
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public Double getPrice() {
+		return price;
+	}
 	@Override
 	public String toString() {
-		return ("[Book Id : "+this.bookId+", Book : "+this.book+", Author : "+this.author+", Price : "+this.price+" ]");
+		return (this.bookId+"\t"+this.book+"\t"+this.author+"\t"+this.price);
 		
 	}
 	

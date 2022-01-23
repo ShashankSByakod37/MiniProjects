@@ -22,7 +22,7 @@ public class DBConnection {
 	}
 	
 	public Connection getConnect() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost/Books", "root","7259882520Ssb37$" );
+		return DriverManager.getConnection("jdbc:mysql://localhost/Books", "root","root" );
 	}
 	
 	

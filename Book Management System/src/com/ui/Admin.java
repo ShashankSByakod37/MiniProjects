@@ -2,18 +2,27 @@ package com.ui;
 
 
 import com.model.*;
+import java.util.Set;
+import java.sql.SQLException;
 import java.util.*;
 import com.dao.BookDAO;
+
+import com.dbconnection.*;
+
+
 public class Admin {
 	
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 		int choice;
 		
 		Scanner s = new Scanner(System.in).useDelimiter("\n");
 		BookDAO dao= new BookDAO();
+		
+		IDAO db = new JDBCDAO();
+		
 		char c;
 		
 		do {
@@ -27,13 +36,16 @@ public class Admin {
 				switch(choice) {
 				case 1:
 					System.out.println("View HERE : \n");
-					Set<Book> bks = dao.viewALL();
+//					Set<Book> bks = dao.viewALL();
+					List<Book> bks = new ArrayList<>();
+//					System.out.println("hello from db");
+					bks = db.viewAllBooks();
 					if(bks.isEmpty()) {
 						System.out.println("Please add some books to display by pressing 2 in main menu.\n");
 					}
 					
 					Iterator<Book> itr = bks.iterator();
-					
+					System.out.println("BookID\tBook\t\tAuthor\t\t\tPrice");
 					while(itr.hasNext()) {
 						System.out.println(itr.next());
 						
@@ -53,8 +65,12 @@ public class Admin {
 						
 						Book bk = new Book(BookId,BookName,AuthorName,Price);
 						dao.insertBook(bk);
+						System.out.println(db.insertBook(bk));
 						
 						System.out.println("Successfully added a book");
+					}
+					catch(InputMismatchException e) {
+						System.out.println("Please enter the valid input.\n");
 					}
 					catch(Exception e) {
 						System.out.println(e);
@@ -66,7 +82,8 @@ public class Admin {
 					try {
 						int BookId = s.nextInt();
 //						if()
-						int returnDelete = dao.deleteBook(BookId);
+//						int returnDelete = dao.deleteBook(BookId);
+						int returnDelete = db.deleteBook(BookId);
 						
 						if(returnDelete!=1) {
 							throw new BookIdNotFoundException();
@@ -93,7 +110,8 @@ public class Admin {
 						int BookId1 = s.nextInt();
 						System.out.println("Enter the new price of the book: ");
 						double price = s.nextDouble();
-						int returnUpdate = dao.updateBook(BookId1,price);
+//						int returnUpdate = dao.updateBook(BookId1,price);
+						int returnUpdate = db.updatePrice(BookId1, price);
 						if(returnUpdate!= 1) {
 							throw new BookIdNotFoundException();
 						
