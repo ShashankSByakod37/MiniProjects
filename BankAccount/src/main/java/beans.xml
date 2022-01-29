@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd">
+
+
+<bean id = "Type1" class = "com.model.DematAcc"></bean>
+	
+
+<bean id = "AType" class = "com.model.SavingsAcc"></bean>
+	
+	
+<bean id = "Acc1" scope = "prototype" class = "com.model.Account">
+
+	<property name="accId" value = "1"></property>
+	<property name="accName" value = "Account one"></property>
+	<property name="balance" value = "5000"></property>
+	<property name="AType" ref = "Type1"></property>
+
+</bean>
+
+<bean id = "Acc2" scope = "prototype" class = "com.model.Account">
+
+	<property name="accId" value = "2"></property>
+	<property name="accName" value = "Account two"></property>
+	<property name="balance" value = "10000"></property>
+	<property name="AType" ref = "AType"></property>
+
+</bean>
+
+
+<bean id = "Acc3"  class = "com.model.Account">
+	<constructor-arg value = "3"></constructor-arg>
+		<constructor-arg value = "Account Three"></constructor-arg>
+			<constructor-arg value = "90000"></constructor-arg>
+				<constructor-arg ref = "Type1"></constructor-arg>
+</bean>
+</beans>
