@@ -25,7 +25,7 @@ public class DematAcc implements AccountType{
 			System.out.println("Balance not sufficient");
 		}
 		
-		System.out.println("demat withdrawal");
+		System.out.println("\ndemat withdrawal\n");
 		
 		
 	}

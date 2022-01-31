@@ -12,7 +12,7 @@
 <bean id = "AType" class = "com.model.DematAcc"></bean>
 	
 
-<bean id = "AT"  class = "com.model.SavingsAcc"></bean>
+<bean id = "Type1"  class = "com.model.SavingsAcc"></bean>
 	
 	
 <bean id = "Acc1" scope = "prototype" class = "com.model.Account"></bean>

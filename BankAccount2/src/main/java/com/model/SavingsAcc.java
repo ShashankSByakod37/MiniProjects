@@ -24,7 +24,7 @@ public class SavingsAcc implements AccountType{
 			System.out.println("Balance not sufficient");
 		}
 		
-		System.out.println("Savings withdrawal");
+		System.out.println("\nSavings withdrawal\n");
 		
 		
 	}
