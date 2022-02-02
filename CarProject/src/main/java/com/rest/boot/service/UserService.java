@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rest.boot.dao.UserDao;
+import com.rest.model.Car;
 
 @Service
 //@Entity
@@ -102,7 +103,9 @@ public class UserService {
 //		this.color = color;
 //	}
 //	
-	public UserDao getCarServiceById(String id) {
+	public Car getCarServiceById(String id) {
+		
+		System.out.println("inside service");
 		return userDao.getCarById(id);
 	}
 	

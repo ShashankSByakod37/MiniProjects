@@ -87,10 +87,10 @@ public class CarController {
 //	
 	@GetMapping("/cars/{id}")
 	
-//	public UserService getCarServiceById(@PathVariable String id ) {
-//		
-//		return userService.getCarServiceById(id);
-//	}
+	public Car getCarServiceById(@PathVariable String id ) {
+		System.out.println("inside controller");
+		return userService.getCarServiceById(id);
+	}
 	
 	
 	@DeleteMapping("cars/{id}")
