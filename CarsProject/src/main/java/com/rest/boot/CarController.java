@@ -76,7 +76,16 @@ public class CarController {
 	
 	@DeleteMapping("/cars/{id}")
 	public void deleteById(@PathVariable String id) {
+//		boolean flag = false;
+		try {
 		cs.deleteById(id);
+		System.out.println("Record deleted with id "+id);
+//		return;
+		}
+		catch (Exception e) {
+		System.out.println("Record not found in db with id "+id);
+		}
+		
 	}
 
 }
